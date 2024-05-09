@@ -1,81 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Project Name Landing Page</title>
-</head>
-<body>
-    <!-- Introduction Section -->
-    <section id="intro">
-        <div class="container">
-            <h1>Welcome to [Your Project Name]</h1>
-            <img src="link_to_cover_image" alt="Cover Image">
-            <p>[Your Project Name] is an immersive raycasting game that utilizes SDL2, C, and advanced raycasting techniques to create an exhilarating maze experience.</p>
-            <!-- Navigation -->
-            <nav>
-                <ul>
-                    <li><a href="#intro">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
-            <!-- Button to Play Now -->
-            <a href="link_to_deployed_project" class="button">Play Now</a>
-        </div>
-    </section>
 
-    <!-- Feature Highlights Section -->
-    <section id="features">
-        <div class="container">
-            <h2>Feature Highlights</h2>
-            <!-- Feature 1: Texture Mapping -->
-            <div class="feature">
-                <img src="link_to_texture_mapping_image_or_video" alt="Texture Mapping">
-                <h3>Texture Mapping</h3>
-                <p>Explore richly detailed environments with lifelike textures that bring the game world to life.</p>
-            </div>
-            <!-- Feature 2: Event Handling -->
-            <div class="feature">
-                <img src="link_to_event_handling_image_or_video" alt="Event Handling">
-                <h3>Event Handling</h3>
-                <p>Seamlessly interact with the game environment using intuitive controls and responsive event handling.</p>
-            </div>
-            <!-- Feature 3: Wall Casting Techniques -->
-            <div class="feature">
-                <img src="link_to_wall_casting_image_or_video" alt="Wall Casting Techniques">
-                <h3>Wall Casting Techniques</h3>
-                <p>Experience realistic 3D environments with dynamic wall casting techniques that create immersive gameplay.</p>
-            </div>
-        </div>
-    </section>
+{% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About</h2>
-            <!-- Project Inspiration -->
-            <p>[Your personal story about what inspired the project, including the timeline of its development. Mention that it's a Portfolio Project for Holberton School with a link.]</p>
-            <!-- Meet the Team -->
-            <h3>Meet the Team</h3>
-            <ul>
-                <!-- Team Member 1 -->
-                <li>
-                    <a href="link_to_linkedin_profile">LinkedIn</a>
-                    <a href="link_to_github_profile">GitHub</a>
-                    <a href="link_to_twitter_profile">Twitter</a>
-                </li>
-                <!-- Team Member 2 -->
-                <li>
-                    <a href="link_to_linkedin_profile">LinkedIn</a>
-                    <a href="link_to_github_profile">GitHub</a>
-                    <a href="link_to_twitter_profile">Twitter</a>
-                </li>
-                <!-- Add more team members as needed -->
-            </ul>
-            <!-- Project Repository -->
-            <p><a href="link_to_github_repository">GitHub Repository</a></p>
-        </div>
-    </section>
-</body>
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+      {% if site.show_downloads %}
+        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
+        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+      {% endif %}
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
 </html>
